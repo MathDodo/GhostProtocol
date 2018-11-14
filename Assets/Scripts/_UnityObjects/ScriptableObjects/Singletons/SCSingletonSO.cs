@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Base class for self creating monobehaviour singletons, which other classes can derive from to become singletons
+/// Base class for self creating scribtable object singletons, which other classes can derive from to become singletons
 /// </summary>
 /// <typeparam name="T">This generic type, needs to be the type of the derived class</typeparam>
-public abstract class SCSingletonMB<T> : MonoBehaviour, ISingleton where T : SCSingletonMB<T>
+public abstract class SCSingletonSO<T> : ScriptableObject, ISingleton where T : SCSingletonSO<T>
 {
     //The singleton instance field
     private static T instance;
@@ -32,9 +32,7 @@ public abstract class SCSingletonMB<T> : MonoBehaviour, ISingleton where T : SCS
 
                 if (instance == null)
                 {
-                    //Creating a gameobject with the name of the class type
-                    GameObject go = new GameObject(typeof(T).ToString());
-                    instance = go.AddComponent<T>();
+                    instance = CreateInstance<T>();
                     instance.OnInstantiated();
                     DontDestroyOnLoad(instance);
                     SingletonManager.Instance.AddInstance(instance);

@@ -17,6 +17,7 @@ public class TestScript : MonoBehaviour
         {
             doSpawn = false;
             ObjectPool.Instance.Spawn(this);
+            SceneManager.Instance.LoadScene(Scenes.SampleScene);
         }
     }
 }
