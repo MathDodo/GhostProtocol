@@ -2,7 +2,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Placeholder for the objectpool, will expanded in the future
+/// Placeholder for the objectpool, will be expanded in the future
 /// </summary>
 public class ObjectPool : SCSingletonMB<ObjectPool>
 {

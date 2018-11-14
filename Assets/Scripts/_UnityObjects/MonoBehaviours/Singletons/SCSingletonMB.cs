@@ -22,7 +22,7 @@ public abstract class SCSingletonMB<T> : MonoBehaviour, ISingleton where T : SCS
     {
         get
         {
-            //Locking for thread sage
+            //Locking for thread safe
             lock (lockObject)
             {
                 if (destroyed)
