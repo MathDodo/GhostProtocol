@@ -35,7 +35,7 @@ public class SaveManager : RSingletonSO<SaveManager>
     {
         while (!destroyed)
         {
-            while (!save) { }
+            while (!save && !destroyed) { }
 
             if (save)
             {
