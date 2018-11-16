@@ -6,17 +6,17 @@ using UnityEngine;
 /// </summary>
 public class ObjectPool : SCSingletonMB<ObjectPool>
 {
-    private List<Object> pool;
+    private List<Object> _Pool;
 
     public override void OnInstantiated()
     {
-        pool = new List<Object>();
+        _Pool = new List<Object>();
     }
 
     public T Spawn<T>(T original) where T : Object
     {
         var instance = Instantiate(original);
-        pool.Add(instance);
+        _Pool.Add(instance);
         return instance;
     }
 }

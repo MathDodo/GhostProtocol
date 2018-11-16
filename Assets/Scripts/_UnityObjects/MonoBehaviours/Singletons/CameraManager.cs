@@ -8,15 +8,15 @@
 public class CameraManager : RSingletonMB<CameraManager>
 {
     //The camera field reference
-    private Camera cam;
+    private Camera _Cam;
 
     /// <summary>
     /// Get accesor for the camera
     /// </summary>
-    public Camera Cam { get { return cam; } }
+    public Camera Cam { get { return _Cam; } }
 
     public override void OnInstantiated()
     {
-        cam = GetComponent<Camera>();
+        _Cam = GetComponent<Camera>();
     }
 }

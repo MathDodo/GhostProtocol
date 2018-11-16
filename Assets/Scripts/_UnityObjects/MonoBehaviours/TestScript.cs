@@ -6,16 +6,16 @@
 public class TestScript : MonoBehaviour
 {
     [SerializeField] //If it should spawn a clone through the object pool
-    private bool doSpawn = false;
+    private bool _DoSpawn = false;
 
     /// <summary>
     /// Starting method called by unity, used to spawn a clone through the object pool
     /// </summary>
     private void Start()
     {
-        if (doSpawn)
+        if (_DoSpawn)
         {
-            doSpawn = false;
+            _DoSpawn = false;
             ObjectPool.Instance.Spawn(this);
             SceneManager.Instance.LoadScene(Scenes.SampleScene);
 

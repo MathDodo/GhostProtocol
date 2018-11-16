@@ -8,7 +8,7 @@ using UnityEngine;
 public class SaveManager : RSingletonSO<SaveManager>
 {
     //Whether the saving thread should save
-    private bool save;
+    private bool _Save;
 
     public override void OnInstantiated()
     {
@@ -22,9 +22,9 @@ public class SaveManager : RSingletonSO<SaveManager>
     /// </summary>
     public void StartSave()
     {
-        if (!save)
+        if (!_Save)
         {
-            save = true;
+            _Save = true;
         }
     }
 
@@ -33,14 +33,14 @@ public class SaveManager : RSingletonSO<SaveManager>
     /// </summary>
     private void SavingThread()
     {
-        while (!destroyed)
+        while (!_Destroyed)
         {
-            while (!save && !destroyed) { }
+            while (!_Save && !_Destroyed) { }
 
-            if (save)
+            if (_Save)
             {
                 Debug.Log("Saving");
-                save = false;
+                _Save = false;
             }
         }
     }

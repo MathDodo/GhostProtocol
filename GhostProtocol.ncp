@@ -18,9 +18,9 @@
         <Location left="1185" top="283" />
         <Size width="213" height="179" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">static T instance</Member>
-        <Member type="Field">static readonly object lockObject = new object()</Member>
-        <Member type="Field">protected static bool destroyed</Member>
+        <Member type="Field">static T _Instance</Member>
+        <Member type="Field">static readonly object _LockObject = new object()</Member>
+        <Member type="Field">protected static bool _Destroyed</Member>
         <Member type="Property">public static T Instance { get; }</Member>
         <Member type="Method">public abstract void OnInstantiated()</Member>
         <Member type="Method">protected virtual void OnDestroy()</Member>
@@ -40,8 +40,8 @@
         <Location left="1036" top="539" />
         <Size width="215" height="162" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">List&lt;Object&gt; instances</Member>
-        <Member type="Field">List&lt;Object&gt; resourceSingletons</Member>
+        <Member type="Field">List&lt;Object&gt; _Instances</Member>
+        <Member type="Field">List&lt;Object&gt; _ResourceSingletons</Member>
         <Member type="Method">public void OnInstantiated()</Member>
         <Member type="Method">public void AddInstance(Object instance)</Member>
         <Member type="Method">public T GetInstance&lt;T&gt;()</Member>
@@ -69,11 +69,11 @@
         <Name>SCSingletonSO&lt;T&gt;</Name>
         <Access>Public</Access>
         <Location left="467" top="265" />
-        <Size width="198" height="216" />
+        <Size width="198" height="179" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">static T instance</Member>
-        <Member type="Field">static readonly object lockObject = new object()</Member>
-        <Member type="Field">protected static bool destroyed</Member>
+        <Member type="Field">static T _Instance</Member>
+        <Member type="Field">static readonly object _LockObject = new object()</Member>
+        <Member type="Field">protected static bool _Destroyed</Member>
         <Member type="Property">public T Instance { get; }</Member>
         <Member type="Method">public void OnInstantiated()</Member>
         <Member type="Method">protected virtual void OnDestroy()</Member>
@@ -82,7 +82,7 @@
       <Entity type="Class">
         <Name>SceneManager</Name>
         <Access>Public</Access>
-        <Location left="360" top="686" />
+        <Location left="363" top="989" />
         <Size width="606" height="264" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private Dictionary&lt;SceneID, UnityEngine.SceneManagement.Scene&gt; activeScenes</Member>
@@ -112,9 +112,9 @@
         <Location left="1602" top="253" />
         <Size width="207" height="179" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">static T instance</Member>
-        <Member type="Field">static readonly object lockObject = new object()</Member>
-        <Member type="Field">protected static bool destroyed</Member>
+        <Member type="Field">static T _Instance</Member>
+        <Member type="Field">static readonly object _LockObject = new object()</Member>
+        <Member type="Field">protected static bool _Destroyed</Member>
         <Member type="Property">public static T Instance { get; }</Member>
         <Member type="Method">public abstract void OnInstantiated()</Member>
         <Member type="Method">protected virtual void OnDestroy()</Member>
@@ -126,7 +126,7 @@
         <Location left="1756" top="562" />
         <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">Camera cam</Member>
+        <Member type="Field">Camera _Cam</Member>
         <Member type="Property">public Camera Cam { get; }</Member>
         <Member type="Method">public override void OnInstantiated()</Member>
         <Modifier>None</Modifier>
@@ -135,11 +135,11 @@
         <Name>RSingletonSO&lt;T&gt;</Name>
         <Access>Public</Access>
         <Location left="119" top="209" />
-        <Size width="201" height="180" />
+        <Size width="206" height="180" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">static T instance</Member>
-        <Member type="Field">static object lockObject = new object()</Member>
-        <Member type="Field">protected static bool destroyed</Member>
+        <Member type="Field">static T _Instance</Member>
+        <Member type="Field">static object _LockObject = new object()</Member>
+        <Member type="Field">protected static bool _Destroyed</Member>
         <Member type="Property">public static T Instance { get; }</Member>
         <Member type="Method">public abstract void OnInstantiated()</Member>
         <Member type="Method">protected virtual void OnDestroy()</Member>
@@ -151,7 +151,7 @@
         <Location left="119" top="505" />
         <Size width="162" height="145" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">bool save</Member>
+        <Member type="Field">bool _Save</Member>
         <Member type="Method">public void OnInstantiated()</Member>
         <Member type="Method">public void StartSave()</Member>
         <Member type="Method">private void SavingThread()</Member>
@@ -196,8 +196,6 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="7" second="8">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Bidirectional</Direction>
@@ -209,12 +207,12 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>556</X>
-          <Y>661</Y>
+          <X>559</X>
+          <Y>964</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>556</X>
-          <Y>522</Y>
+          <Y>485</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="9" second="2">

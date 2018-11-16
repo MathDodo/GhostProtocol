@@ -6,11 +6,11 @@ using UnityEngine;
 /// </summary>
 public class SceneManager : SCSingletonSO<SceneManager>
 {
-    private List<Scenes> activeScenes;
+    private List<Scenes> _ActiveScenes;
 
     public override void OnInstantiated()
     {
-        activeScenes = new List<Scenes>();
+        _ActiveScenes = new List<Scenes>();
     }
 
     public void LoadScene(Scenes scene)
