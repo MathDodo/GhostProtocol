@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Base class for self creating scribtable object singletons, which other classes can derive from to become singletons
+/// Base class for resource creating scribtable object singletons, which other classes can derive from to become singletons
 /// </summary>
 /// <typeparam name="T">This generic type, needs to be the type of the derived class</typeparam>
-public abstract class SCSingletonSO<T> : ScriptableObject, ISingleton where T : SCSingletonSO<T>
+public abstract class RSingletonSO<T> : ScriptableObject, ISingleton where T : RSingletonSO<T>
 {
     //The singleton instance field
     private static T instance;
@@ -32,7 +32,7 @@ public abstract class SCSingletonSO<T> : ScriptableObject, ISingleton where T : 
 
                 if (instance == null)
                 {
-                    instance = CreateInstance<T>();
+                    instance = SingletonManager.Instance.GetInstance<T>();
                     instance.OnInstantiated();
                     DontDestroyOnLoad(instance);
                     SingletonManager.Instance.AddInstance(instance);

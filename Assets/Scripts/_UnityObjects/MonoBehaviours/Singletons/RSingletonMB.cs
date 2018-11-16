@@ -9,11 +9,11 @@ public abstract class RSingletonMB<T> : MonoBehaviour, ISingleton where T : RSin
     //The singleton instance field
     private static T instance;
 
-    //Whether if the singleton has been destroyed should only happen when the game closes
-    private static bool destroyed = false;
-
     //Object to achieve a lock from
     private static readonly object lockObject = new object();
+
+    //Whether if the singleton has been destroyed should only happen when the game closes
+    protected static bool destroyed = false;
 
     /// <summary>
     /// Get accesor for the singleton Instance

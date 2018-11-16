@@ -21,6 +21,7 @@ public class TestScript : MonoBehaviour
 
             //Instantiating the cameramanager
             var cam = CameraManager.Instance.Cam;
+            SaveManager.Instance.StartSave();
         }
     }
 }

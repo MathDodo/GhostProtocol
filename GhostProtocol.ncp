@@ -1,0 +1,262 @@
+<Project>
+  <Name>GhostProteocol</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Singletons</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>MonoBehaviour</Name>
+        <Access>Public</Access>
+        <Location left="1199" top="105" />
+        <Size width="162" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SCSingletonMB&lt;T&gt;</Name>
+        <Access>Public</Access>
+        <Location left="1185" top="283" />
+        <Size width="213" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">static T instance</Member>
+        <Member type="Field">static readonly object lockObject = new object()</Member>
+        <Member type="Field">protected static bool destroyed</Member>
+        <Member type="Property">public static T Instance { get; }</Member>
+        <Member type="Method">public abstract void OnInstantiated()</Member>
+        <Member type="Method">protected virtual void OnDestroy()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>ISingleton</Name>
+        <Access>Public</Access>
+        <Location left="882" top="55" />
+        <Size width="162" height="84" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">void OnInstantiated()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>SingletonManager</Name>
+        <Access>Public</Access>
+        <Location left="1036" top="539" />
+        <Size width="215" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">List&lt;Object&gt; instances</Member>
+        <Member type="Field">List&lt;Object&gt; resourceSingletons</Member>
+        <Member type="Method">public void OnInstantiated()</Member>
+        <Member type="Method">public void AddInstance(Object instance)</Member>
+        <Member type="Method">public T GetInstance&lt;T&gt;()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ObjectPool</Name>
+        <Access>Public</Access>
+        <Location left="1313" top="539" />
+        <Size width="162" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void OnInstantiated()</Member>
+        <Member type="Method">public T Spawn&lt;T&gt;(T original)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ScriptableObjects</Name>
+        <Access>Public</Access>
+        <Location left="489" top="93" />
+        <Size width="162" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SCSingletonSO&lt;T&gt;</Name>
+        <Access>Public</Access>
+        <Location left="467" top="265" />
+        <Size width="198" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">static T instance</Member>
+        <Member type="Field">static readonly object lockObject = new object()</Member>
+        <Member type="Field">protected static bool destroyed</Member>
+        <Member type="Property">public T Instance { get; }</Member>
+        <Member type="Method">public void OnInstantiated()</Member>
+        <Member type="Method">protected virtual void OnDestroy()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SceneManager</Name>
+        <Access>Public</Access>
+        <Location left="360" top="686" />
+        <Size width="606" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Dictionary&lt;SceneID, UnityEngine.SceneManagement.Scene&gt; activeScenes</Member>
+        <Member type="Field">public float LoadingProces</Member>
+        <Member type="Field">public Action&lt;SceneID&gt; OnAnySceneLoaded</Member>
+        <Member type="Field">public Action&lt;SceneID&gt; OnAnySceneUnloaded</Member>
+        <Member type="Property">public List&lt;SceneID&gt; GetActiveScenes { get; }</Member>
+        <Member type="Method">public void OnInstantiated()</Member>
+        <Member type="Method">public void LoadScene(SceneID sceneID)</Member>
+        <Member type="Method">public void UnloadScene(SceneID sceneID)</Member>
+        <Member type="Method">public void LoadSceneAdditive(SceneID sceneID)</Member>
+        <Member type="Method">private IEnumerator UnloadSceneAsync(SceneID sceneID)</Member>
+        <Member type="Method">private IEnumerator LoadSceneAsync(SceneID sceneID, UnityEngine.SceneManagement.LoadSceneMode loadSceneMode)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>SceneID</Name>
+        <Access>Public</Access>
+        <Location left="754" top="337" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Value>SampleScene = 0</Value>
+      </Entity>
+      <Entity type="Class">
+        <Name>RSingeltonMB&lt;T&gt;</Name>
+        <Access>Public</Access>
+        <Location left="1602" top="253" />
+        <Size width="207" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">static T instance</Member>
+        <Member type="Field">static readonly object lockObject = new object()</Member>
+        <Member type="Field">protected static bool destroyed</Member>
+        <Member type="Property">public static T Instance { get; }</Member>
+        <Member type="Method">public abstract void OnInstantiated()</Member>
+        <Member type="Method">protected virtual void OnDestroy()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>CameraManager</Name>
+        <Access>Public</Access>
+        <Location left="1756" top="562" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">Camera cam</Member>
+        <Member type="Property">public Camera Cam { get; }</Member>
+        <Member type="Method">public override void OnInstantiated()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>RSingletonSO&lt;T&gt;</Name>
+        <Access>Public</Access>
+        <Location left="119" top="209" />
+        <Size width="201" height="180" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">static T instance</Member>
+        <Member type="Field">static object lockObject = new object()</Member>
+        <Member type="Field">protected static bool destroyed</Member>
+        <Member type="Property">public static T Instance { get; }</Member>
+        <Member type="Method">public abstract void OnInstantiated()</Member>
+        <Member type="Method">protected virtual void OnDestroy()</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SaveManager</Name>
+        <Access>Public</Access>
+        <Location left="119" top="505" />
+        <Size width="162" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">bool save</Member>
+        <Member type="Method">public void OnInstantiated()</Member>
+        <Member type="Method">public void StartSave()</Member>
+        <Member type="Method">private void SavingThread()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="1" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="1" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1148</X>
+          <Y>306</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="1">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>1291</X>
+          <Y>487</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="6" second="5">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="6" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>756</X>
+          <Y>305</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="7" second="8">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Generalization" first="7" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>556</X>
+          <Y>661</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>556</X>
+          <Y>522</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Realization" first="9" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>1718</X>
+          <Y>108</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>1085</X>
+          <Y>84</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="10" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="9" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Realization" first="11" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>176</X>
+          <Y>89</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>833</X>
+          <Y>82</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="11" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="12" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
