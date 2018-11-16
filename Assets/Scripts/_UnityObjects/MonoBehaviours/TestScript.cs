@@ -17,7 +17,7 @@ public class TestScript : MonoBehaviour
         {
             _DoSpawn = false;
             ObjectPool.Instance.Spawn(this);
-            SceneManager.Instance.LoadScene(Scenes.SampleScene);
+            SceneManager.Instance.LoadSceneAdditive(SceneID.SampleScene);
 
             //Instantiating the cameramanager
             var cam = CameraManager.Instance.Cam;

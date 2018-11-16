@@ -82,16 +82,15 @@
       <Entity type="Class">
         <Name>SceneManager</Name>
         <Access>Public</Access>
-        <Location left="363" top="989" />
-        <Size width="606" height="264" />
+        <Location left="383" top="669" />
+        <Size width="606" height="247" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private Dictionary&lt;SceneID, UnityEngine.SceneManagement.Scene&gt; activeScenes</Member>
-        <Member type="Field">public float LoadingProces</Member>
-        <Member type="Field">public Action&lt;SceneID&gt; OnAnySceneLoaded</Member>
-        <Member type="Field">public Action&lt;SceneID&gt; OnAnySceneUnloaded</Member>
+        <Member type="Field">private Dictionary&lt;SceneID, UnityEngine.SceneManagement.Scene&gt; _ActiveScenes</Member>
+        <Member type="Field">public float _LoadingProces</Member>
+        <Member type="Field">public Action&lt;SceneID&gt; _OnAnySceneLoaded</Member>
+        <Member type="Field">public Action&lt;SceneID&gt; _OnAnySceneUnloaded</Member>
         <Member type="Property">public List&lt;SceneID&gt; GetActiveScenes { get; }</Member>
         <Member type="Method">public void OnInstantiated()</Member>
-        <Member type="Method">public void LoadScene(SceneID sceneID)</Member>
         <Member type="Method">public void UnloadScene(SceneID sceneID)</Member>
         <Member type="Method">public void LoadSceneAdditive(SceneID sceneID)</Member>
         <Member type="Method">private IEnumerator UnloadSceneAsync(SceneID sceneID)</Member>
@@ -207,8 +206,8 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>559</X>
-          <Y>964</Y>
+          <X>556</X>
+          <Y>644</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
           <X>556</X>
