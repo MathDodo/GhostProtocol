@@ -82,15 +82,18 @@
       <Entity type="Class">
         <Name>SceneManager</Name>
         <Access>Public</Access>
-        <Location left="383" top="669" />
-        <Size width="606" height="247" />
+        <Location left="381" top="669" />
+        <Size width="606" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private Dictionary&lt;SceneID, UnityEngine.SceneManagement.Scene&gt; _ActiveScenes</Member>
         <Member type="Field">public float _LoadingProces</Member>
         <Member type="Field">public Action&lt;SceneID&gt; _OnAnySceneLoaded</Member>
         <Member type="Field">public Action&lt;SceneID&gt; _OnAnySceneUnloaded</Member>
+        <Member type="Field">public Action&lt;SceneID&gt; _BeforeAnySceneLoaded</Member>
+        <Member type="Field">public Action&lt;SceneID&gt; _BeforeAnySceneUnloaded</Member>
         <Member type="Property">public List&lt;SceneID&gt; GetActiveScenes { get; }</Member>
         <Member type="Method">public void OnInstantiated()</Member>
+        <Member type="Method">public void LoadSceneSingle(SceneID scene)</Member>
         <Member type="Method">public void UnloadScene(SceneID sceneID)</Member>
         <Member type="Method">public void LoadSceneAdditive(SceneID sceneID)</Member>
         <Member type="Method">private IEnumerator UnloadSceneAsync(SceneID sceneID)</Member>
@@ -195,6 +198,8 @@
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="7" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Bidirectional</Direction>
@@ -206,7 +211,7 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>556</X>
+          <X>554</X>
           <Y>644</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">

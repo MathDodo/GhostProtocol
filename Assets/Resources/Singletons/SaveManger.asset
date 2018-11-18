@@ -11,3 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d623356cd95f5489f20913c388684a, type: 3}
   m_Name: SaveManger
   m_EditorClassIdentifier: 
+  TestStuff: 0
+  IntTestStuff: 0
+  StringStuff: 
+  FloatTestStuff: 0
+  SomeMoreStuff:
+  - wtf

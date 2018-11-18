@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Placeholder for the SceneManager, will be expanded in the future
@@ -14,10 +15,21 @@ public class SceneManager : SCSingletonSO<SceneManager>
     public float _LoadingProcess;
 
     //Invoked when any scene is loaded
-    public event Action<SceneID> OnAnySceneLoaded;
+    public event Action<SceneID> _OnAnySceneLoaded;
 
     //Invoked when any scene is unloaded
-    public event Action<SceneID> OnAnySceneUnloaded;
+    public event Action<SceneID> _OnAnySceneUnloaded;
+
+    //Invoked before any scene is loaded
+    public event Action<SceneID> _BeforeAnySceneLoaded;
+
+    //Invoked before any scene is unloaded
+    public event Action<SceneID> _BeforeAnySceneUnloaded;
+
+    /// <summary>
+    /// Getting the ids of the active scenes
+    /// </summary>
+    public List<SceneID> GetActiveScenes { get { return _ActiveScenes.Keys.ToList(); } }
 
     /// <summary>
     /// Giving the activescenes a value so it can be filled, also adding the current active scenes
@@ -35,6 +47,31 @@ public class SceneManager : SCSingletonSO<SceneManager>
     }
 
     /// <summary>
+    /// Load a scene with the single mode, will unload all other scenes automatically (Except DontDestroyOnLoad)
+    /// </summary>
+    /// <param name="scene"></param>
+    public void LoadSceneSingle(SceneID scene)
+    {
+        if (!_ActiveScenes.ContainsKey(scene))
+        {
+            if (_BeforeAnySceneLoaded != null)
+            {
+                _BeforeAnySceneLoaded.Invoke(scene);
+            }
+
+            if (_BeforeAnySceneUnloaded != null)
+            {
+                foreach (var pair in _ActiveScenes)
+                {
+                    _BeforeAnySceneUnloaded.Invoke(pair.Key);
+                }
+            }
+
+            SingletonManager.Instance.StartCoroutine(LoadSceneAsync(scene, UnityEngine.SceneManagement.LoadSceneMode.Single));
+        }
+    }
+
+    /// <summary>
     /// Load a new scene without unloading other scenes, only if isn't already active will it be loaded
     /// </summary>
     /// <param name="scene">The id of the scene to be loaded</param>
@@ -42,6 +79,11 @@ public class SceneManager : SCSingletonSO<SceneManager>
     {
         if (!_ActiveScenes.ContainsKey(scene))
         {
+            if (_BeforeAnySceneLoaded != null)
+            {
+                _BeforeAnySceneLoaded.Invoke(scene);
+            }
+
             SingletonManager.Instance.StartCoroutine(LoadSceneAsync(scene, UnityEngine.SceneManagement.LoadSceneMode.Additive));
         }
     }
@@ -54,6 +96,11 @@ public class SceneManager : SCSingletonSO<SceneManager>
     {
         if (_ActiveScenes.ContainsKey(scene))
         {
+            if (_BeforeAnySceneUnloaded != null)
+            {
+                _BeforeAnySceneUnloaded.Invoke(scene);
+            }
+
             SingletonManager.Instance.StartCoroutine(UnloadSceneAsync(scene));
         }
     }
@@ -75,9 +122,19 @@ public class SceneManager : SCSingletonSO<SceneManager>
             yield return null;
         }
 
-        if (OnAnySceneLoaded != null)
+        if (_OnAnySceneLoaded != null)
         {
-            OnAnySceneLoaded.Invoke(id);
+            _OnAnySceneLoaded.Invoke(id);
+        }
+
+        if (loadSceneMode == UnityEngine.SceneManagement.LoadSceneMode.Single && _OnAnySceneUnloaded != null)
+        {
+            foreach (var pair in _ActiveScenes)
+            {
+                _OnAnySceneUnloaded.Invoke(pair.Key);
+            }
+
+            _ActiveScenes.Clear();
         }
 
         for (int i = 0; i < UnityEngine.SceneManagement.SceneManager.sceneCount; i++)
@@ -105,9 +162,9 @@ public class SceneManager : SCSingletonSO<SceneManager>
 
         _ActiveScenes.Remove(id);
 
-        if (OnAnySceneUnloaded != null)
+        if (_OnAnySceneUnloaded != null)
         {
-            OnAnySceneUnloaded.Invoke(id);
+            _OnAnySceneUnloaded.Invoke(id);
         }
     }
 }

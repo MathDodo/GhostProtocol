@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +10,12 @@ public class SaveManager : RSingletonSO<SaveManager>
 {
     //Whether the saving thread should save
     private bool _Save;
+
+    public bool TestStuff;
+    public int IntTestStuff;
+    public string StringStuff;
+    public float FloatTestStuff;
+    public List<string> SomeMoreStuff;
 
     public override void OnInstantiated()
     {
