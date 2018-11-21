@@ -1,13 +1,13 @@
 <Project>
-  <Name>GhostProteocol</Name>
+  <Name>GhostProtocol</Name>
   <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
-    <Name>Singletons</Name>
+    <Name>System</Name>
     <Language>CSharp</Language>
     <Entities>
       <Entity type="Class">
         <Name>MonoBehaviour</Name>
         <Access>Public</Access>
-        <Location left="1199" top="105" />
+        <Location left="1620" top="60" />
         <Size width="162" height="77" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -15,12 +15,12 @@
       <Entity type="Class">
         <Name>SCSingletonMB&lt;T&gt;</Name>
         <Access>Public</Access>
-        <Location left="1185" top="283" />
+        <Location left="1606" top="238" />
         <Size width="213" height="179" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">static T _Instance</Member>
-        <Member type="Field">static readonly object _LockObject = new object()</Member>
-        <Member type="Field">protected static bool _Destroyed</Member>
+        <Member type="Field">static T _instance</Member>
+        <Member type="Field">static readonly object _lockObject = new object()</Member>
+        <Member type="Field">protected static bool _destroyed</Member>
         <Member type="Property">public static T Instance { get; }</Member>
         <Member type="Method">public abstract void OnInstantiated()</Member>
         <Member type="Method">protected virtual void OnDestroy()</Member>
@@ -29,7 +29,7 @@
       <Entity type="Interface">
         <Name>ISingleton</Name>
         <Access>Public</Access>
-        <Location left="882" top="55" />
+        <Location left="1303" top="10" />
         <Size width="162" height="84" />
         <Collapsed>False</Collapsed>
         <Member type="Method">void OnInstantiated()</Member>
@@ -37,11 +37,11 @@
       <Entity type="Class">
         <Name>SingletonManager</Name>
         <Access>Public</Access>
-        <Location left="1036" top="539" />
+        <Location left="1457" top="494" />
         <Size width="215" height="162" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">List&lt;Object&gt; _Instances</Member>
-        <Member type="Field">List&lt;Object&gt; _ResourceSingletons</Member>
+        <Member type="Field">List&lt;Object&gt; _instances</Member>
+        <Member type="Field">List&lt;Object&gt; _resourceSingletons</Member>
         <Member type="Method">public void OnInstantiated()</Member>
         <Member type="Method">public void AddInstance(Object instance)</Member>
         <Member type="Method">public T GetInstance&lt;T&gt;()</Member>
@@ -50,7 +50,7 @@
       <Entity type="Class">
         <Name>ObjectPool</Name>
         <Access>Public</Access>
-        <Location left="1313" top="539" />
+        <Location left="1734" top="494" />
         <Size width="162" height="111" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void OnInstantiated()</Member>
@@ -60,7 +60,7 @@
       <Entity type="Class">
         <Name>ScriptableObjects</Name>
         <Access>Public</Access>
-        <Location left="489" top="93" />
+        <Location left="910" top="48" />
         <Size width="162" height="77" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -68,12 +68,12 @@
       <Entity type="Class">
         <Name>SCSingletonSO&lt;T&gt;</Name>
         <Access>Public</Access>
-        <Location left="467" top="265" />
-        <Size width="198" height="179" />
+        <Location left="888" top="220" />
+        <Size width="208" height="179" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">static T _Instance</Member>
-        <Member type="Field">static readonly object _LockObject = new object()</Member>
-        <Member type="Field">protected static bool _Destroyed</Member>
+        <Member type="Field">static T _instance</Member>
+        <Member type="Field">static readonly object _lockObject = new object()</Member>
+        <Member type="Field">protected static bool _destroyed</Member>
         <Member type="Property">public T Instance { get; }</Member>
         <Member type="Method">public void OnInstantiated()</Member>
         <Member type="Method">protected virtual void OnDestroy()</Member>
@@ -82,10 +82,10 @@
       <Entity type="Class">
         <Name>SceneManager</Name>
         <Access>Public</Access>
-        <Location left="381" top="669" />
+        <Location left="802" top="782" />
         <Size width="606" height="298" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private Dictionary&lt;SceneID, UnityEngine.SceneManagement.Scene&gt; _ActiveScenes</Member>
+        <Member type="Field">private Dictionary&lt;SceneID, UnityEngine.SceneManagement.Scene&gt; _activeScenes</Member>
         <Member type="Field">public float _LoadingProces</Member>
         <Member type="Field">public Action&lt;SceneID&gt; _OnAnySceneLoaded</Member>
         <Member type="Field">public Action&lt;SceneID&gt; _OnAnySceneUnloaded</Member>
@@ -103,7 +103,7 @@
       <Entity type="Enum">
         <Name>SceneID</Name>
         <Access>Public</Access>
-        <Location left="754" top="337" />
+        <Location left="1175" top="292" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Value>SampleScene = 0</Value>
@@ -111,12 +111,12 @@
       <Entity type="Class">
         <Name>RSingeltonMB&lt;T&gt;</Name>
         <Access>Public</Access>
-        <Location left="1602" top="253" />
+        <Location left="2023" top="208" />
         <Size width="207" height="179" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">static T _Instance</Member>
-        <Member type="Field">static readonly object _LockObject = new object()</Member>
-        <Member type="Field">protected static bool _Destroyed</Member>
+        <Member type="Field">static T _instance</Member>
+        <Member type="Field">static readonly object _lockObject = new object()</Member>
+        <Member type="Field">protected static bool _destroyed</Member>
         <Member type="Property">public static T Instance { get; }</Member>
         <Member type="Method">public abstract void OnInstantiated()</Member>
         <Member type="Method">protected virtual void OnDestroy()</Member>
@@ -125,10 +125,10 @@
       <Entity type="Class">
         <Name>CameraManager</Name>
         <Access>Public</Access>
-        <Location left="1756" top="562" />
+        <Location left="2177" top="517" />
         <Size width="162" height="128" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">Camera _Cam</Member>
+        <Member type="Field">Camera _cam</Member>
         <Member type="Property">public Camera Cam { get; }</Member>
         <Member type="Method">public override void OnInstantiated()</Member>
         <Modifier>None</Modifier>
@@ -136,12 +136,12 @@
       <Entity type="Class">
         <Name>RSingletonSO&lt;T&gt;</Name>
         <Access>Public</Access>
-        <Location left="119" top="209" />
+        <Location left="540" top="163" />
         <Size width="206" height="180" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">static T _Instance</Member>
-        <Member type="Field">static object _LockObject = new object()</Member>
-        <Member type="Field">protected static bool _Destroyed</Member>
+        <Member type="Field">static T _instance</Member>
+        <Member type="Field">static object _lockObject = new object()</Member>
+        <Member type="Field">protected static bool _destroyed</Member>
         <Member type="Property">public static T Instance { get; }</Member>
         <Member type="Method">public abstract void OnInstantiated()</Member>
         <Member type="Method">protected virtual void OnDestroy()</Member>
@@ -150,13 +150,39 @@
       <Entity type="Class">
         <Name>SaveManager</Name>
         <Access>Public</Access>
-        <Location left="119" top="505" />
-        <Size width="162" height="145" />
+        <Location left="493" top="427" />
+        <Size width="292" height="366" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">bool _Save</Member>
+        <Member type="Field">bool _save</Member>
+        <Member type="Field">int _amountOfSaves</Member>
+        <Member type="Field">string _saveFileName</Member>
+        <Member type="Field">SavedData _template</Member>
+        <Member type="Field">Location _initialLocation</Member>
+        <Member type="Field">SavedData _activeSave</Member>
+        <Member type="Field">List&lt;SavedData&gt; _saves</Member>
+        <Member type="Field">SaveInstruction _instruction</Member>
+        <Member type="Field">SaveFileType _saveFileType</Member>
+        <Member type="Field">ManageSaveFile _management</Member>
+        <Member type="Field">public bool _Loaded</Member>
+        <Member type="Field">public List&lt;FieldCreator&gt; _Creators</Member>
+        <Member type="Property">public SavedData ActiveSave { get; }</Member>
+        <Member type="Property">public ReadOnlyCollection&lt;SaveData&gt; SavedData { get; }</Member>
         <Member type="Method">public void OnInstantiated()</Member>
         <Member type="Method">public void StartSave()</Member>
         <Member type="Method">private void SavingThread()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SaveManagerInspector</Name>
+        <Access>Public</Access>
+        <Location left="120" top="535" />
+        <Size width="194" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">SaveManager castedTarget</Member>
+        <Member type="Field">MonoScript saveManagerScript</Member>
+        <Member type="Method">private void OnEnable()</Member>
+        <Member type="Method">public override void OnInspectorGUI()</Member>
+        <Member type="Method">private void WriteToSavedDataScript()</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -169,8 +195,8 @@
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1148</X>
-          <Y>306</Y>
+          <X>1569</X>
+          <Y>261</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="3" second="1">
@@ -181,8 +207,8 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1291</X>
-          <Y>487</Y>
+          <X>1712</X>
+          <Y>442</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="6" second="5">
@@ -193,13 +219,11 @@
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>756</X>
-          <Y>305</Y>
+          <X>1187</X>
+          <Y>260</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="7" second="8">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Bidirectional</Direction>
@@ -211,24 +235,24 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>554</X>
-          <Y>644</Y>
+          <X>977</X>
+          <Y>756</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>556</X>
-          <Y>485</Y>
+          <X>977</X>
+          <Y>440</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Realization" first="9" second="2">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1718</X>
-          <Y>108</Y>
+          <X>2139</X>
+          <Y>63</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1085</X>
-          <Y>84</Y>
+          <X>1506</X>
+          <Y>39</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="10" second="9">
@@ -243,12 +267,12 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>176</X>
-          <Y>89</Y>
+          <X>597</X>
+          <Y>43</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>833</X>
-          <Y>82</Y>
+          <X>1254</X>
+          <Y>37</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="11" second="5">
@@ -256,6 +280,250 @@
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Generalization" first="12" second="11">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="13" second="12">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>SaveSetup</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Enum">
+        <Name>SaveFileType</Name>
+        <Access>Public</Access>
+        <Location left="66" top="389" />
+        <Size width="162" height="180" />
+        <Collapsed>False</Collapsed>
+        <Value>None = 0</Value>
+        <Value>Json = 1</Value>
+        <Value>XML = 2</Value>
+        <Value>SQliteDatabase = 3</Value>
+        <Value>Ini = 4</Value>
+        <Value>Txt = 5</Value>
+        <Value>Custom = 6</Value>
+      </Entity>
+      <Entity type="Class">
+        <Name>SavedData</Name>
+        <Access>Public</Access>
+        <Location left="941" top="297" />
+        <Size width="266" height="179" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int _saveID</Member>
+        <Member type="Property">public int SaveID { get; set; }</Member>
+        <Member type="Method">public override XmlSchema GetSchema()</Member>
+        <Member type="Method">public void ReadXml(XmlReader reader)</Member>
+        <Member type="Method">public void WriteXml(XmlWriter writer)</Member>
+        <Member type="Method">public SavedData CloneFromTemplate()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>FieldType</Name>
+        <Access>Public</Access>
+        <Location left="473" top="357" />
+        <Size width="162" height="197" />
+        <Collapsed>False</Collapsed>
+        <Value>None = 0</Value>
+        <Value>Int = 1</Value>
+        <Value>Float = 2</Value>
+        <Value>String = 3</Value>
+        <Value>Vector2 = 4</Value>
+        <Value>Vector3 = 5</Value>
+        <Value>Vector2Int = 6</Value>
+        <Value>Vector3Int = 7</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>SaveInstruction</Name>
+        <Access>Public</Access>
+        <Location left="263" top="339" />
+        <Size width="162" height="112" />
+        <Collapsed>False</Collapsed>
+        <Value>None = 0</Value>
+        <Value>Local = 1</Value>
+        <Value>NonLocal = 2</Value>
+      </Entity>
+      <Entity type="Enum">
+        <Name>ManageSaveFile</Name>
+        <Access>Public</Access>
+        <Location left="274" top="496" />
+        <Size width="162" height="112" />
+        <Collapsed>False</Collapsed>
+        <Value>None = 0</Value>
+        <Value>SingleFile = 1</Value>
+        <Value>MultipleFiles = 2</Value>
+      </Entity>
+      <Entity type="Structure">
+        <Name>SerializableVector2</Name>
+        <Access>Public</Access>
+        <Location left="665" top="202" />
+        <Size width="214" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private float _x</Member>
+        <Member type="Field">private float _y</Member>
+        <Member type="Property">public float X { get; set; }</Member>
+        <Member type="Property">public float Y { get; set; }</Member>
+        <Member type="Constructor">public SerializableVector2(string value)</Member>
+        <Member type="Constructor">public SerializableVector2(Vector2 vector)</Member>
+        <Member type="Constructor">public SerializableVector2(float x, float y)</Member>
+        <Member type="Method">public override void ToString()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>SerializableVector3</Name>
+        <Access>Public</Access>
+        <Location left="66" top="65" />
+        <Size width="245" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private float _x</Member>
+        <Member type="Field">private float _y</Member>
+        <Member type="Field">private float _z</Member>
+        <Member type="Property">public float X { get; set; }</Member>
+        <Member type="Property">public float Y { get; set; }</Member>
+        <Member type="Property">public float Z { get; set; }</Member>
+        <Member type="Constructor">public SerializableVector3(string value)</Member>
+        <Member type="Constructor">public SerializableVector3(Vector3 vector)</Member>
+        <Member type="Constructor">public SerializableVector3(float x, float y, float z)</Member>
+        <Member type="Method">public override void ToString()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>SerializableVector2Int</Name>
+        <Access>Public</Access>
+        <Location left="650" top="437" />
+        <Size width="240" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int _x</Member>
+        <Member type="Field">private int _y</Member>
+        <Member type="Property">public int X { get; set; }</Member>
+        <Member type="Property">public int Y { get; set; }</Member>
+        <Member type="Constructor">public SerializableVector2Int(int x, int y)</Member>
+        <Member type="Constructor">public SerializableVector2Int(string value)</Member>
+        <Member type="Constructor">public SerializableVector2Int(Vector2Int vector)</Member>
+        <Member type="Method">public override void ToString()</Member>
+      </Entity>
+      <Entity type="Structure">
+        <Name>SerializableVector3Int</Name>
+        <Access>Public</Access>
+        <Location left="363" top="65" />
+        <Size width="245" height="247" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int _x</Member>
+        <Member type="Field">private int _y</Member>
+        <Member type="Field">private int _z</Member>
+        <Member type="Property">public int X { get; set; }</Member>
+        <Member type="Property">public int Y { get; set; }</Member>
+        <Member type="Property">public int Z { get; set; }</Member>
+        <Member type="Constructor">public SerializableVector3Int(string value)</Member>
+        <Member type="Constructor">public SerializableVector3Int(Vector3Int vector)</Member>
+        <Member type="Constructor">public SerializableVector3Int(int x, int y, int z)</Member>
+        <Member type="Method">public override void ToString()</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>FieldCreator</Name>
+        <Access>Public</Access>
+        <Location left="694" top="65" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public FieldType _Type</Member>
+        <Member type="Field">public string _FieldName</Member>
+        <Member type="Field">public string _Value</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>IXmlSerializable</Name>
+        <Access>Public</Access>
+        <Location left="959" top="104" />
+        <Size width="206" height="112" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">XmlSchema GetSchema()</Member>
+        <Member type="Method">void ReadXml(XmlReader reader)</Member>
+        <Member type="Method">void WriteXml(XmlWriter writer)</Member>
+      </Entity>
+      <Entity type="Class">
+        <Name>JsonDataWrapper</Name>
+        <Access>Public</Access>
+        <Location left="1332" top="104" />
+        <Size width="251" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public List&lt;SavedData&gt; _Saves</Member>
+        <Member type="Method">public void ToJson(List&lt;SavedData&gt; saves)</Member>
+        <Member type="Method">public JsonDataWrapper FromJson()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>SQlite database is always one database with multiple save ids</Text>
+        <Location left="33" top="621" />
+        <Size width="176" height="50" />
+      </Entity>
+      <Entity type="Comment">
+        <Text>This wrapper is used when saved with the json utility and with the _saves from the SaveManager</Text>
+        <Location left="1332" top="10" />
+        <Size width="160" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>XMLDataWrapper</Name>
+        <Access>Public</Access>
+        <Location left="1332" top="250" />
+        <Size width="232" height="111" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void ToXml(SavedData activeSave)</Member>
+        <Member type="Method">public void FromXml()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>SQliteDataWrapper</Name>
+        <Access>Public</Access>
+        <Location left="941" top="679" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>IniDataWrapper</Name>
+        <Access>Public</Access>
+        <Location left="1125" top="566" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>IniWrapper was found elsewhere</Text>
+        <Location left="941" top="566" />
+        <Size width="160" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>TxtDataWrapper</Name>
+        <Access>Public</Access>
+        <Location left="1408" top="382" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Enum">
+        <Name>Location</Name>
+        <Access>Public</Access>
+        <Location left="423" top="640" />
+        <Size width="162" height="112" />
+        <Collapsed>False</Collapsed>
+        <Value>None = 0</Value>
+        <Value>StreamingAssets = 1</Value>
+        <Value>PersistentDataPath = 2</Value>
+      </Entity>
+      <Entity type="Class">
+        <Name>Crypto</Name>
+        <Access>Public</Access>
+        <Location left="665" top="679" />
+        <Size width="162" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Realization" first="1" second="10">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>

@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc5e3f7b0beda940b586bb05d006317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DoSpawn: 1
+  _doSpawn: 1
 --- !u!4 &1951600545
 Transform:
   m_ObjectHideFlags: 0

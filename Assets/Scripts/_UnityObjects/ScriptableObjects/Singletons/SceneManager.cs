@@ -9,7 +9,7 @@ using System.Linq;
 public class SceneManager : SCSingletonSO<SceneManager>
 {
     //The currently active scenes
-    private Dictionary<SceneID, UnityEngine.SceneManagement.Scene> _ActiveScenes;
+    private Dictionary<SceneID, UnityEngine.SceneManagement.Scene> _activeScenes;
 
     //Acces to the loading process of a scene
     public float _LoadingProcess;
@@ -29,20 +29,20 @@ public class SceneManager : SCSingletonSO<SceneManager>
     /// <summary>
     /// Getting the ids of the active scenes
     /// </summary>
-    public List<SceneID> GetActiveScenes { get { return _ActiveScenes.Keys.ToList(); } }
+    public List<SceneID> GetActiveScenes { get { return _activeScenes.Keys.ToList(); } }
 
     /// <summary>
     /// Giving the activescenes a value so it can be filled, also adding the current active scenes
     /// </summary>
     public override void OnInstantiated()
     {
-        _ActiveScenes = new Dictionary<SceneID, UnityEngine.SceneManagement.Scene>();
+        _activeScenes = new Dictionary<SceneID, UnityEngine.SceneManagement.Scene>();
 
         for (int i = 0; i < UnityEngine.SceneManagement.SceneManager.sceneCount; i++)
         {
             var scene = UnityEngine.SceneManagement.SceneManager.GetSceneAt(i);
 
-            _ActiveScenes.Add((SceneID)scene.buildIndex, scene);
+            _activeScenes.Add((SceneID)scene.buildIndex, scene);
         }
     }
 
@@ -52,16 +52,13 @@ public class SceneManager : SCSingletonSO<SceneManager>
     /// <param name="scene"></param>
     public void LoadSceneSingle(SceneID scene)
     {
-        if (!_ActiveScenes.ContainsKey(scene))
+        if (!_activeScenes.ContainsKey(scene))
         {
-            if (_BeforeAnySceneLoaded != null)
-            {
-                _BeforeAnySceneLoaded.Invoke(scene);
-            }
+            _BeforeAnySceneLoaded?.Invoke(scene);
 
             if (_BeforeAnySceneUnloaded != null)
             {
-                foreach (var pair in _ActiveScenes)
+                foreach (var pair in _activeScenes)
                 {
                     _BeforeAnySceneUnloaded.Invoke(pair.Key);
                 }
@@ -77,12 +74,9 @@ public class SceneManager : SCSingletonSO<SceneManager>
     /// <param name="scene">The id of the scene to be loaded</param>
     public void LoadSceneAdditive(SceneID scene)
     {
-        if (!_ActiveScenes.ContainsKey(scene))
+        if (!_activeScenes.ContainsKey(scene))
         {
-            if (_BeforeAnySceneLoaded != null)
-            {
-                _BeforeAnySceneLoaded.Invoke(scene);
-            }
+            _BeforeAnySceneLoaded?.Invoke(scene);
 
             SingletonManager.Instance.StartCoroutine(LoadSceneAsync(scene, UnityEngine.SceneManagement.LoadSceneMode.Additive));
         }
@@ -94,12 +88,9 @@ public class SceneManager : SCSingletonSO<SceneManager>
     /// <param name="scene">The scene to be unloaded</param>
     public void UnloadScene(SceneID scene)
     {
-        if (_ActiveScenes.ContainsKey(scene))
+        if (_activeScenes.ContainsKey(scene))
         {
-            if (_BeforeAnySceneUnloaded != null)
-            {
-                _BeforeAnySceneUnloaded.Invoke(scene);
-            }
+            _BeforeAnySceneUnloaded?.Invoke(scene);
 
             SingletonManager.Instance.StartCoroutine(UnloadSceneAsync(scene));
         }
@@ -129,19 +120,19 @@ public class SceneManager : SCSingletonSO<SceneManager>
 
         if (loadSceneMode == UnityEngine.SceneManagement.LoadSceneMode.Single && _OnAnySceneUnloaded != null)
         {
-            foreach (var pair in _ActiveScenes)
+            foreach (var pair in _activeScenes)
             {
                 _OnAnySceneUnloaded.Invoke(pair.Key);
             }
 
-            _ActiveScenes.Clear();
+            _activeScenes.Clear();
         }
 
         for (int i = 0; i < UnityEngine.SceneManagement.SceneManager.sceneCount; i++)
         {
             if (UnityEngine.SceneManagement.SceneManager.GetSceneAt(i).buildIndex == (int)id)
             {
-                _ActiveScenes.Add(id, UnityEngine.SceneManagement.SceneManager.GetSceneAt(i));
+                _activeScenes.Add(id, UnityEngine.SceneManagement.SceneManager.GetSceneAt(i));
             }
         }
     }
@@ -160,11 +151,8 @@ public class SceneManager : SCSingletonSO<SceneManager>
             yield return null;
         }
 
-        _ActiveScenes.Remove(id);
+        _activeScenes.Remove(id);
 
-        if (_OnAnySceneUnloaded != null)
-        {
-            _OnAnySceneUnloaded.Invoke(id);
-        }
+        _OnAnySceneUnloaded?.Invoke(id);
     }
 }

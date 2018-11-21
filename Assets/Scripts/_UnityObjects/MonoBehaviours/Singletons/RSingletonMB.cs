@@ -7,13 +7,13 @@
 public abstract class RSingletonMB<T> : MonoBehaviour, ISingleton where T : RSingletonMB<T>
 {
     //The singleton instance field
-    private static T _Instance;
+    private static T _instance;
 
     //Object to achieve a lock from
-    private static readonly object _LockObject = new object();
+    private static readonly object _lockObject = new object();
 
     //Whether if the singleton has been destroyed should only happen when the game closes
-    protected static bool _Destroyed = false;
+    protected static bool _destroyed = false;
 
     /// <summary>
     /// Get accesor for the singleton Instance
@@ -23,22 +23,22 @@ public abstract class RSingletonMB<T> : MonoBehaviour, ISingleton where T : RSin
         get
         {
             //Locking for thread safe
-            lock (_LockObject)
+            lock (_lockObject)
             {
-                if (_Destroyed)
+                if (_destroyed)
                 {
                     return null;
                 }
 
-                if (_Instance == null)
+                if (_instance == null)
                 {
-                    _Instance = SingletonManager.Instance.GetInstance<T>();
-                    _Instance.OnInstantiated();
-                    DontDestroyOnLoad(_Instance);
-                    SingletonManager.Instance.AddInstance(_Instance);
+                    _instance = SingletonManager.Instance.GetInstance<T>();
+                    _instance.OnInstantiated();
+                    DontDestroyOnLoad(_instance);
+                    SingletonManager.Instance.AddInstance(_instance);
                 }
 
-                return _Instance;
+                return _instance;
             }
         }
     }
@@ -47,6 +47,6 @@ public abstract class RSingletonMB<T> : MonoBehaviour, ISingleton where T : RSin
 
     protected virtual void OnDestroy()
     {
-        _Destroyed = true;
+        _destroyed = true;
     }
 }

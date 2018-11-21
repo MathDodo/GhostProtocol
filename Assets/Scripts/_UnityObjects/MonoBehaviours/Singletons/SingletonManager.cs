@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -8,19 +7,19 @@ using UnityEngine;
 public class SingletonManager : SCSingletonMB<SingletonManager>
 {
     [SerializeField] //The instances of the active singletons, delete this before build, only used to track instances on runtime
-    private List<Object> _Instances;
+    private List<Object> _instances;
 
     [SerializeField] //The singletons loaded from the resources folder
-    private List<Object> _ResourceSingletons;
+    private List<Object> _resourceSingletons;
 
     /// <summary>
     /// Overriden the abstract method from the singleton base class which this derives from
     /// </summary>
     public override void OnInstantiated()
     {
-        _Instances = new List<Object>();
+        _instances = new List<Object>();
 
-        _ResourceSingletons = new List<Object>(Resources.LoadAll("Singletons", typeof(ISingleton)));
+        _resourceSingletons = new List<Object>(Resources.LoadAll("Singletons", typeof(ISingleton)));
     }
 
     /// <summary>
@@ -29,7 +28,7 @@ public class SingletonManager : SCSingletonMB<SingletonManager>
     /// <param name="instance">The instance of the singleton</param>
     public void AddInstance(Object instance)
     {
-        _Instances.Add(instance);
+        _instances.Add(instance);
     }
 
     /// <summary>
@@ -41,7 +40,7 @@ public class SingletonManager : SCSingletonMB<SingletonManager>
     {
         T instance;
 
-        if ((instance = (T)_ResourceSingletons.Find(i => i.GetType() == typeof(T))) != null)
+        if ((instance = (T)_resourceSingletons.Find(i => i.GetType() == typeof(T))) != null)
         {
             return Instantiate(instance);
         }
